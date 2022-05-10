@@ -1,0 +1,136 @@
+:root {
+    --main-color: #20BDFF;
+    --second-color: #20BDFF;
+}
+
+body,
+html,
+p {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #FFF;
+}
+
+@keyframes upScreen {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: 19%;
+    }
+}
+
+main::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: #20BDFF;
+    top: 100%;
+    animation: upScreen 5s forwards;
+    z-index: 9;
+}
+
+.wave {
+    width: 233%;
+    flex-shrink: 0;
+}
+
+@keyframes upWaves {
+    from {
+        bottom: 0%;
+    }
+
+    to {
+        bottom: 80%;
+    }
+}
+
+.backWaves,
+.frontWaves {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    bottom: 0px;
+    animation: upWaves 5s forwards;
+}
+
+@keyframes frontWaves {
+    from {
+        margin-left: 0%;
+    }
+
+    to {
+        margin-left: -200%;
+    }
+}
+
+.frontWaves .wave>path {
+    width: 100%;
+    fill: var(--main-color);
+}
+
+.frontWaves .wave:nth-child(1) {
+    margin-left: 0;
+    animation: frontWaves .8s 4 cubic-bezier(0, 0, 1, 1),
+        frontWaves 2s 3.2s forwards cubic-bezier(.17, .98, 1, 1);
+
+}
+
+
+@keyframes showLogo {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.polygons {
+    opacity: 0;
+    position: absolute;
+    margin-left: 50%;
+    left: -30px;
+    margin-top: 200px;
+    z-index: 99;
+    animation: showLogo 3s 3s forwards;
+
+}
+
+.polygons>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -115px !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    margin-top: -9px;
+    margin-left: -45px;
+    height: 225px;
+    width: 365px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
